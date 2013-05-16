@@ -19,3 +19,8 @@ body,textarea{
 #previewContainer{
     display:none;
 }
+
+.previewFeedBack{
+    
+    font-size: 12px;
+}

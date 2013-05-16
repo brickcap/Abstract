@@ -21,9 +21,17 @@ $(function(){
         return editArea.val();
     }
     
+    function getWordCount(text){
+        var replacedSpaces = text.replace(/\s/g,' ');
+        replacedSpaces = replacedSpaces.split(' ');
+        return replacedSpaces.length;
+    }
+    
     function setHtmlinPreviewPane(markdownText){
+        $("#wordCount").text('words: '+getWordCount(markdownText));
         $("#previewPane").html(markdown.toHTML(markdownText));
     }
+    
     
     editArea.focusout(function(){
         
