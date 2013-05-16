@@ -8,6 +8,7 @@ $(function(){
     return editArea;
         
     }
+    
     var editArea = prepareInitialWorkSpace();
     
     function hideThis(element){
@@ -15,8 +16,18 @@ $(function(){
         $(element).hide();
     }
     
+    function getMarkdownText(){
+        
+        return editArea.val();
+    }
+    
+    function setHtmlinPreviewPane(markdownText){
+        $("#previewPane").html(markdown.toHTML(markdownText));
+    }
+    
     editArea.focusout(function(){
         
+        setHtmlinPreviewPane(getMarkdownText());
         $("#previewContainer").show();
         hideThis(this);
     });
