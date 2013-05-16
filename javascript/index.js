@@ -22,9 +22,8 @@ $(function(){
     }
     
     function getWordCount(text){
-        var replacedSpaces = text.replace(/\s/g,' ');
-        replacedSpaces = replacedSpaces.split(' ');
-        return replacedSpaces.length;
+        
+     return text.split(/\s+\b/).length;
     }
     
     function setHtmlinPreviewPane(markdownText){
