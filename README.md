@@ -1,0 +1,1 @@
+Abstract is an opensource drafting tool.
