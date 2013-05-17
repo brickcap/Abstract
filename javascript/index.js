@@ -33,7 +33,6 @@ $(function(){
     
     function setRawHtml(){
         var pane = $("#previewPane");
-        console.log("called");
         pane.text(pane.html());
     }
     
