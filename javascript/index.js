@@ -10,9 +10,11 @@ $(function(){
         for(var i =0;i< keys.length; i++){
             var parsed = JSON.parse(localStorage[keys[i]]);
             var draft = {};
+            var count = getWordCount(parsed.text);
             draft["date"] = new Date(parsed.time).toDateString();
-            draft["count"] = getWordCount(parsed.text);
+            draft["count"] = count;
             draft["title"] = keys[i];
+            draft["plural"] = count > 1 ; 
             data.push(draft);
         }
         
@@ -26,7 +28,7 @@ $(function(){
         var data = {};
         data["keys"] = buildData(loadSavedDrafts());
         console.log(data.keys);
-        var template = "{{#keys}}<li data-title='{{title}}'><p>{{title}} <span class='muted draftList'> ({{date}})</span></p> <p class='muted draftList '> {{count}} words</p>  </li><hr/>{{/keys}}";
+        var template = "{{#keys}}<li data-title='{{title}}'><p>{{title}} <span class='muted draftList'> ({{date}})</span></p> <p class='muted draftList '> {{count}} word{{#plural}}s{{/plural}}</p>  </li><hr/>{{/keys}}";
         var html = Mustache.render(template,data);
         $("#draftList").html(html);
     }
@@ -129,6 +131,7 @@ $(function(){
         
         renderSavedDrafts();
         hideThis("#editContainer");
+        hideThis("#previewContainer");
         hideThis("#saveDraft");
         showThis("#drafts");
     });
