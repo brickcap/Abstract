@@ -53,5 +53,6 @@ $(function(){
     $("#rawHtml").click(function(e){
         setRawHtml();
         e.stopPropagation();
+        hideThis(this);
     });
 }); 
