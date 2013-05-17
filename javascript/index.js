@@ -4,6 +4,16 @@ $(function(){
         return Object.keys(localStorage);
     }
     
+    function sortedArray (data){
+        
+        return data.sort(function(a,b){
+        a = new Date(a.trueDate);
+        b = new Date(b.trueDate);
+        return a<b?-1:a>b?1:0;
+        }).reverse();
+        
+    }
+    
     function buildData(keys){
         
         var data = [];
@@ -15,11 +25,12 @@ $(function(){
             draft["count"] = count;
             draft["title"] = keys[i];
             draft["plural"] = count > 1 ; 
+            draft["trueDate"] = parsed.time;
             data.push(draft);
         }
         
+        return sortedArray(data);
         
-        return data;
     }
     
     function renderSavedDrafts(){
@@ -27,7 +38,6 @@ $(function(){
         
         var data = {};
         data["keys"] = buildData(loadSavedDrafts());
-        console.log(data.keys);
         var template = "{{#keys}}<li data-title='{{title}}'><p>{{title}} <span class='muted draftList'> ({{date}})</span></p> <p class='muted draftList '> {{count}} word{{#plural}}s{{/plural}}</p>  </li><hr/>{{/keys}}";
         var html = Mustache.render(template,data);
         $("#draftList").html(html);
