@@ -1,6 +1,6 @@
  [contenteditable="true"]{outline:none;}
 
-#editContainer{
+#editContainer,#drafts,#subNav{
     margin-top: 20px;
     
 }

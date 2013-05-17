@@ -4,12 +4,21 @@ $(function(){
         return Object.keys(localStorage);
     }
     
+    function renderSavedDrafts(){
+        
+        var data = {};
+        data["keys"] = loadSavedDrafts();
+        var template = "{{#keys}}<li>{{.}}</li><hr/>{{/keys}}";
+        var html = Mustache.render(template,data);
+        $("#draftList").html(html);
+    }
+    
     function prepareInitialWorkSpace(){
     
     var editArea = $("#editArea");
     editArea.autosize();
     $("#title").focus();
-    loadSavedDrafts();
+    
     return editArea;
         
     }
@@ -96,5 +105,13 @@ $(function(){
     $("#saveDraft").click(function(){
         
         saveCurrentDraft();
+    });
+    
+    $("#renderSavedDrafts").click(function(){
+        
+        renderSavedDrafts();
+        hideThis("#editContainer");
+        hideThis("#saveDraft");
+        showThis("#drafts");
     });
 }); 
