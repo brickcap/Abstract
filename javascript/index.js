@@ -31,6 +31,11 @@ $(function(){
         $("#previewPane").html(markdown.toHTML(markdownText));
     }
     
+    function setRawHtml(){
+        var pane = $("#previewPane");
+        console.log("called");
+        pane.text(pane.html());
+    }
     
     editArea.focusout(function(){
         
@@ -44,5 +49,10 @@ $(function(){
         hideThis(this);
         editArea.show();
         editArea.focus();
+    });
+    
+    $("#rawHtml").click(function(e){
+        setRawHtml();
+        e.stopPropagation();
     });
 }); 
