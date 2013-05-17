@@ -4,11 +4,29 @@ $(function(){
         return Object.keys(localStorage);
     }
     
+    function buildData(keys){
+        
+        var data = [];
+        for(var i =0;i< keys.length; i++){
+            var parsed = JSON.parse(localStorage[keys[i]]);
+            var draft = {};
+            draft["date"] = new Date(parsed.time).toDateString();
+            draft["count"] = getWordCount(parsed.text);
+            draft["title"] = keys[i];
+            data.push(draft);
+        }
+        
+        
+        return data;
+    }
+    
     function renderSavedDrafts(){
         
+        
         var data = {};
-        data["keys"] = loadSavedDrafts();
-        var template = "{{#keys}}<li>{{.}}</li><hr/>{{/keys}}";
+        data["keys"] = buildData(loadSavedDrafts());
+        console.log(data.keys);
+        var template = "{{#keys}}<li data-title='{{title}}'><p>{{title}} <span class='muted draftList'> ({{date}})</span></p> <p class='muted draftList '> {{count}} words</p>  </li><hr/>{{/keys}}";
         var html = Mustache.render(template,data);
         $("#draftList").html(html);
     }
