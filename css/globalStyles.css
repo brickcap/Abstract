@@ -24,3 +24,8 @@ body,textarea{
     
     font-size: 12px;
 }
+
+.hiddenElement{
+    
+    display:none;
+}

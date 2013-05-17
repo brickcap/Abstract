@@ -16,6 +16,11 @@ $(function(){
         $(element).hide();
     }
     
+    function showThis(element){
+        
+        $(element).show();
+    }
+    
     function getMarkdownText(){
         
         return editArea.val();
@@ -36,11 +41,19 @@ $(function(){
         pane.text(pane.html());
     }
     
+    function setPlain(){
+        
+        var pane = $("#previewPane");
+        pane.html(pane.text());
+    }
+    
     editArea.focusout(function(){
         
         setHtmlinPreviewPane(getMarkdownText());
         $("#previewContainer").show();
         hideThis(this);
+        hideThis("#plain");
+        showThis("#rawHtml");
     });
     
     $("#previewContainer").click(function(){
@@ -51,8 +64,18 @@ $(function(){
     });
     
     $("#rawHtml").click(function(e){
+        
         setRawHtml();
         e.stopPropagation();
         hideThis(this);
+        showThis("#plain");
+    });
+    
+    $("#plain").click(function(e){
+        
+        setPlain();
+        e.stopPropagation();
+        hideThis(this);
+        showThis("#rawHtml");
     });
 }); 
