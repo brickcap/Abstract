@@ -1,10 +1,15 @@
 $(function(){
     
+    function loadSavedDrafts(){
+        return Object.keys(localStorage);
+    }
+    
     function prepareInitialWorkSpace(){
     
     var editArea = $("#editArea");
     editArea.autosize();
     $("#title").focus();
+    loadSavedDrafts();
     return editArea;
         
     }
@@ -56,6 +61,15 @@ $(function(){
         showThis("#rawHtml");
     });
     
+    
+    function saveCurrentDraft(){        
+        var key = $("#title").text();
+        var draft = {};
+        draft["time"] = new Date();
+        draft["text"] = getMarkdownText();
+        localStorage.setItem(key, JSON.stringify(draft));
+    }
+    
     $("#previewContainer").click(function(){
         
         hideThis(this);
@@ -77,5 +91,10 @@ $(function(){
         e.stopPropagation();
         hideThis(this);
         showThis("#rawHtml");
+    });
+    
+    $("#saveDraft").click(function(){
+        
+        saveCurrentDraft();
     });
 }); 
