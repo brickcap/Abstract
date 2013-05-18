@@ -48,7 +48,7 @@
     $("#renderSavedDrafts").click(function(){
         
         renderSavedDrafts();
-        hideThis(["#editContainer","#previewContainer","#saveDraft"]);
+        hideThis(["#previewContainer","#editContainer","#saveDraft"]);
         showThis(["#drafts"]);
     });
     
@@ -72,7 +72,7 @@
         editArea.val(parsed.text);
         $("#title").text(title);
         showThis([editArea,"#editContainer","#title",'#saveDraft']);
-        editArea.focus();
+        
  }); 
  
 }); 
