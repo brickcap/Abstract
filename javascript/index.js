@@ -145,4 +145,14 @@ $(function(){
         hideThis("#saveDraft");
         showThis("#drafts");
     });
+    
+    $("#createNew").click(function(){
+        hideThis("#previewContainer");
+        hideThis("#drafts");
+        showThis("#editContainer");
+        showThis("#editArea");
+        $(editArea).focus();
+        showThis("#saveDraft");
+        
+    });
 }); 
