@@ -43,7 +43,7 @@
     $("#saveDraft").click(function(){
         
         saveCurrentDraft();
-        $("#saveStatus").addClass('text-success').text('Draft Saved').delay(1000).fadeOut();
+        $("#saveStatus").fadeIn().show().delay(1000).fadeOut();
     });
     
     $("#renderSavedDrafts").click(function(){
