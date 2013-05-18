@@ -36,3 +36,8 @@ body,textarea{
     font-size: 12px;
     
 }
+
+.draftListItems{
+    
+    cursor: pointer;
+}
