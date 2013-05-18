@@ -48,3 +48,8 @@ function saveCurrentDraft(){
         draft["wordCount"] = getWordCountFromLabel($("#wordCount").text());
         localStorage.setItem(key, JSON.stringify(draft));
     }
+
+function getDraftFromKey(key){
+    
+    return localStorage.getItem(key);
+}

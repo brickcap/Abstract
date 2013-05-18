@@ -57,4 +57,10 @@
         $("#title").text('');     
         
     });
+        
+    $(".draftListItems").click(function(){
+        
+        hideThis(["#drafts"]);
+        
+    });    
 }); 
