@@ -58,9 +58,16 @@
         
     });
         
-    $(".draftListItems").click(function(){
+        $("ol").on('click','.draftListItems',function(){
+        alert("clicked");
+        //hideThis(["#drafts"]);
+        
+         var title = $(this).data().title;
         
         hideThis(["#drafts"]);
-        
-    });    
+
+         
+     });    
+ }); 
+ 
 }); 
