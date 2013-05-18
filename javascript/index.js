@@ -20,7 +20,7 @@ $(function(){
         for(var i =0;i< keys.length; i++){
             var parsed = JSON.parse(localStorage[keys[i]]);
             var draft = {};
-            var count = getWordCount(parsed.text);
+            var count = parsed.wordCount;
             draft["date"] = new Date(parsed.time).toDateString();
             draft["count"] = count;
             draft["title"] = keys[i];
@@ -106,12 +106,18 @@ $(function(){
         showThis(["#rawHtml",'#previewContainer']);
     });
     
+    function getWordCountFromLabel(text){
+        
+        return text.match(/\d+/)[0];
+    }
     
-    function saveCurrentDraft(){        
+    function saveCurrentDraft(){
+        
         var key = $("#title").text();
         var draft = {};
         draft["time"] = new Date();
         draft["text"] = getMarkdownText();
+        draft["wordCount"] = getWordCountFromLabel($("#wordCount").text());
         localStorage.setItem(key, JSON.stringify(draft));
     }
     
@@ -155,8 +161,8 @@ $(function(){
         
         showThis(["#editContainer","#editArea","#saveDraft"]);
         
-        $(editArea).focus();
-        $(editArea).val('');
+        editArea.focus();
+        editArea.val('');
         $("#title").text('');
         
         
