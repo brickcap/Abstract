@@ -152,6 +152,8 @@ $(function(){
         showThis("#editContainer");
         showThis("#editArea");
         $(editArea).focus();
+        $(editArea).val('');
+        $("#title").text('');
         showThis("#saveDraft");
         
     });
