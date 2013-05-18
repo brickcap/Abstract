@@ -5,8 +5,7 @@
     
     var editArea = $("#editArea");
     editArea.autosize();
-    $("#title").focus();
-    
+    $("#title").focus();    
     return editArea;
         
     }
