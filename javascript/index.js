@@ -55,15 +55,21 @@ $(function(){
     
     var editArea = prepareInitialWorkSpace();
     
-    function hideThis(element){
+    function hideThis(elements){
         
-        $(element).hide();
+        for(var i = 0; i<elements.length; i++){
+            
+        $(elements[i]).hide();
     }
+}
     
-    function showThis(element){
+    function showThis(elements){
         
-        $(element).show();
+        for(var i = 0; i<elements.length; i++){
+            
+        $(elements[i]).show();
     }
+}
     
     function getMarkdownText(){
         
@@ -94,10 +100,10 @@ $(function(){
     editArea.focusout(function(){
         
         setHtmlinPreviewPane(getMarkdownText());
-        $("#previewContainer").show();
-        hideThis(this);
-        hideThis("#plain");
-        showThis("#rawHtml");
+        
+        hideThis([this,'#plain']);
+       
+        showThis(["#rawHtml",'#previewContainer']);
     });
     
     
@@ -111,7 +117,7 @@ $(function(){
     
     $("#previewContainer").click(function(){
         
-        hideThis(this);
+        hideThis([this]);
         editArea.show();
         editArea.focus();
     });
@@ -120,16 +126,16 @@ $(function(){
         
         setRawHtml();
         e.stopPropagation();
-        hideThis(this);
-        showThis("#plain");
+        hideThis([this]);
+        showThis(["#plain"]);
     });
     
     $("#plain").click(function(e){
         
         setPlain();
         e.stopPropagation();
-        hideThis(this);
-        showThis("#rawHtml");
+        hideThis([this]);
+        showThis(["#rawHtml"]);
     });
     
     $("#saveDraft").click(function(){
@@ -140,21 +146,19 @@ $(function(){
     $("#renderSavedDrafts").click(function(){
         
         renderSavedDrafts();
-        hideThis("#editContainer");
-        hideThis("#previewContainer");
-        hideThis("#saveDraft");
-        showThis("#drafts");
+        hideThis(["#editContainer","#previewContainer","#saveDraft"]);
+        showThis(["#drafts"]);
     });
     
     $("#createNew").click(function(){
-        hideThis("#previewContainer");
-        hideThis("#drafts");
-        showThis("#editContainer");
-        showThis("#editArea");
+        hideThis(["#previewContainer","#drafts"]);
+        
+        showThis(["#editContainer","#editArea","#saveDraft"]);
+        
         $(editArea).focus();
         $(editArea).val('');
         $("#title").text('');
-        showThis("#saveDraft");
+        
         
     });
 }); 
