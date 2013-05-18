@@ -1,9 +1,7 @@
     $(function(){    
     
         
-    //TODO: Move all the scripts to knockout.js. Must make all of this stuff clear.        
-    //Why is knockout not used in the first place? Cause I can't think in knockout.
-    // Having a behaviour in front of me makes it all clearer. 
+   
         
     var editArea = prepareInitialWorkSpace();
     
@@ -76,5 +74,15 @@
         showThis([editArea,"#editContainer","#title",'#saveDraft']);
         
  }); 
+        
+$("ol").on('click','a',function(e){
+    
+    e.stopPropagation();
+    var parent = $(this).parents('li');
+    var key = parent.data().title;
+    removeDraft(key);
+    $(parent).hide();
+    
+});        
  
 }); 
