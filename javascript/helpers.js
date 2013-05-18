@@ -1,4 +1,6 @@
-function loadSavedDrafts(){
+    //Contains helper methods that are used by other script files.
+    
+    function loadSavedDrafts(){
         return Object.keys(localStorage);
     }
     
@@ -29,9 +31,9 @@ function loadSavedDrafts(){
         
         return sortedArray(data);
         
-}
-
-function renderSavedDrafts(){
+    }
+    
+    function renderSavedDrafts(){
         
         
         var data = {};
@@ -50,6 +52,7 @@ function renderSavedDrafts(){
     return editArea;
         
     }
+
     function hideThis(elements){
         
         for(var i = 0; i<elements.length; i++){
@@ -63,8 +66,8 @@ function renderSavedDrafts(){
         for(var i = 0; i<elements.length; i++){
             
         $(elements[i]).show();
-    }
 }
+    }
     
     function getMarkdownText(){
         
@@ -91,6 +94,7 @@ function renderSavedDrafts(){
         var pane = $("#previewPane");
         pane.html(pane.text());
     }
+
     function saveCurrentDraft(){
         
         var key = $("#title").text();
@@ -100,8 +104,8 @@ function renderSavedDrafts(){
         draft["wordCount"] = getWordCountFromLabel($("#wordCount").text());
         localStorage.setItem(key, JSON.stringify(draft));
     }
-
-function getWordCountFromLabel(text){
+    
+    function getWordCountFromLabel(text){
         
         return text.match(/\d+/)[0];
     }
