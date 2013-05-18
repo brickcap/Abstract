@@ -34,7 +34,7 @@ function loadSavedDrafts(){
     function renderSavedDrafts(){     
         var data = {};
         data["keys"] = buildData(loadSavedDrafts());
-        var template = "{{#keys}}<li data-title='{{title}}' class='draftListItems'><p>{{title}} <span class='muted draftList'> ({{date}})</span></p> <p class='muted draftList '> {{count}} word{{#plural}}s{{/plural}}</p>  </li><hr/>{{/keys}}";
+        var template = "{{#keys}}<li data-title='{{title}}' class='draftListItems'><p>{{title}} <span class='muted draftList'> ({{date}})</span></p> <p class='muted draftList '> {{count}} word{{#plural}}s{{/plural}} <a href='#' class='text-error'>Delete</a></p>  </li><hr/>{{/keys}}";
         var html = Mustache.render(template,data);
         $("#draftList").html(html);
     }
