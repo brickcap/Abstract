@@ -43,6 +43,7 @@
     $("#saveDraft").click(function(){
         
         saveCurrentDraft();
+        $("#saveStatus").addClass('text-success').text('Draft Saved');
     });
     
     $("#renderSavedDrafts").click(function(){
@@ -71,6 +72,7 @@
         hideThis(["#drafts"]);         
         editArea.val(parsed.text);
         $("#title").text(title);
+        $("#wordCount").text(parsed.wordCount);
         showThis([editArea,"#editContainer","#title",'#saveDraft']);
         
  }); 

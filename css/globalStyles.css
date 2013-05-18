@@ -30,7 +30,7 @@ body,textarea{
     display:none;
 }
 
-.subNav,.draftList{
+.subNav,.draftList,.saveStatus{
     
     letter-spacing:2px;
     font-size: 12px;
