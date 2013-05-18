@@ -1,6 +1,4 @@
-$(function(){    
-    
-    
+    $(function(){    
     
     var editArea = prepareInitialWorkSpace();
     
@@ -12,11 +10,7 @@ $(function(){
         hideThis([this,'#plain']);
        
         showThis(["#rawHtml",'#previewContainer']);
-    });
-    
-    
-    
-    
+    });   
     
     $("#previewContainer").click(function(){
         
@@ -60,8 +54,7 @@ $(function(){
         
         editArea.focus();
         editArea.val('');
-        $("#title").text('');
-        
+        $("#title").text('');     
         
     });
 }); 
