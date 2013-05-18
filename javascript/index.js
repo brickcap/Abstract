@@ -60,10 +60,10 @@
         
         $("ol").on('click','.draftListItems',function(){
             
-           var title = $(this).data().title;
-            var item = getDraftFromKey(title);
-            var parsed = JSON.parse(item);
-            hideThis(["#drafts"]);         
+        var title = $(this).data().title;
+        var item = getDraftFromKey(title);
+        var parsed = JSON.parse(item);
+        hideThis(["#drafts"]);         
         editArea.val(parsed.text);
         $("#title").text(title);
         showThis([editArea,"#editContainer","#title",'#saveDraft']);
