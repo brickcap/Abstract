@@ -11,7 +11,7 @@
     font-weight:bold;
 }
 
-body,textarea{
+body,textarea,li{
     font-size: 17px;
     line-height: 25px;
 }
