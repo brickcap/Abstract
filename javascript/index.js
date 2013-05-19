@@ -40,8 +40,22 @@
     
     $("#saveDraft").click(function(){
         
+    var isTitleEmpty = $("#title").text()=== '';
+    var isDraftEmpty = $("#editArea").val() === '';
+    var hasTitileAndDraft = !(isTitleEmpty && isDraftEmpty);    
+        if(isTitleEmpty){
+            $("#title").focus();
+        }
+        
+        if(isDraftEmpty){
+            
+            editArea.focus();
+        }
+        
+        if(hasTitileAndDraft){
         saveCurrentDraft();
         $("#saveStatus").fadeIn().show().delay(1000).fadeOut();
+        }
     });
     
     $("#renderSavedDrafts").click(function(){
