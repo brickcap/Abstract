@@ -57,3 +57,13 @@
         
         return text.match(/\d+/)[0];
     }
+
+
+function validateInputOnFousOut(){
+    
+  var isTitleEmpty = $("#title").text().trim()=== '';
+  var isDraftEmpty = $("#editArea").val() === '';
+  var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
+  return hasTitileAndDraft();    
+           
+}

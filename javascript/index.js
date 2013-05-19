@@ -3,24 +3,9 @@
     var editArea = prepareInitialWorkSpace();
     
     
-    editArea.focusout(function(){
+    editArea.focusout(function(){        
         
-        var isTitleEmpty = $("#title").text().trim()=== '';
-        var isDraftEmpty = $("#editArea").val() === '';
-        var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
-        
-        if(isTitleEmpty){
-            
-             $("#title").focus();
-        }
-    
-        
-        if(isDraftEmpty){
-            
-          editArea.focusin();
-        }
-        
-        if(hasTitileAndDraft){            
+        if(validateInputOnFousOut()){            
         
         setHtmlinPreviewPane(getMarkdownText());        
         hideThis([this,'#plain']);       
@@ -30,7 +15,7 @@
     }
         
         
-    });   
+});   
     
     $("#previewContainer").click(function(){
         
