@@ -5,11 +5,31 @@
     
     editArea.focusout(function(){
         
-        setHtmlinPreviewPane(getMarkdownText());
+        var isTitleEmpty = $("#title").text().trim()=== '';
+        var isDraftEmpty = $("#editArea").val() === '';
+        var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
         
-        hideThis([this,'#plain']);
-       
+        if(isTitleEmpty){
+            $("#title").focus();
+        }
+    
+        
+        if(isDraftEmpty){
+            
+         return editArea.focusin();
+        }
+        
+        if(hasTitileAndDraft){
+            
+        
+        setHtmlinPreviewPane(getMarkdownText());        
+        hideThis([this,'#plain']);       
         showThis(["#rawHtml",'#previewContainer']);
+        saveCurrentDraft();
+        $("#saveStatus").fadeIn().show();
+    }
+        
+        
     });   
     
     $("#previewContainer").click(function(){
@@ -35,26 +55,26 @@
         showThis(["#rawHtml"]);
     });
     
-    $("#saveDraft").click(function(){
-        
-    var isTitleEmpty = $("#title").text().trim()=== '';
-    var isDraftEmpty = $("#editArea").val() === '';
-    var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
-        if(isTitleEmpty){
-            $("#title").focus();
-        }
-        
-        if(isDraftEmpty){
-            
-            editArea.focus();
-        }
-        
-        if(hasTitileAndDraft){
-        saveCurrentDraft();
-        $("#saveStatus").fadeIn().show().delay(1000).fadeOut();
-        }
-    });
-    
+//    editArea.keyup(function(){
+//        
+//    var isTitleEmpty = $("#title").text().trim()=== '';
+//    var isDraftEmpty = $("#editArea").val() === '';
+//    var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
+//        if(isTitleEmpty){
+//            $("#title").focus();
+//        }
+//        
+//        if(isDraftEmpty){
+//            
+//            editArea.focus();
+//        }
+//        
+//        if(hasTitileAndDraft){
+//        saveCurrentDraft();
+//        $("#saveStatus").fadeIn().show();
+//        }
+//    });
+//    
     $("#renderSavedDrafts").click(function(){
         
         renderSavedDrafts();
