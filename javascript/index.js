@@ -43,14 +43,14 @@
     $("#renderSavedDrafts").click(function(){
         
         renderSavedDrafts();
-        hideThis(["#previewContainer","#editContainer","#saveDraft"]);
+        hideThis(["#previewContainer","#editContainer"]);
         showThis(["#drafts"]);
     });
     
     $("#createNew").click(function(){
         hideThis(["#previewContainer","#drafts"]);
         
-        showThis(["#editContainer","#editArea","#saveDraft"]);
+        showThis(["#editContainer","#editArea"]);
         
         editArea.focus();
         editArea.val('');
@@ -67,7 +67,7 @@
         editArea.val(parsed.text).trigger('autosize');
         $("#title").text(title);
         $("#wordCount").text(parsed.wordCount);
-        showThis([editArea,"#editContainer","#title",'#saveDraft']);
+        showThis([editArea,"#editContainer","#title"]);
         
  }); 
         
