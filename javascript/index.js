@@ -21,6 +21,7 @@
         
         hideThis([this]);
         editArea.show();
+        editArea.trigger('autosize')'
         editArea.focus();
     });
     
