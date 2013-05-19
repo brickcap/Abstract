@@ -10,7 +10,9 @@
   <body>
       
        <div class="container-fluid" id="subNav">
+        <a href="https://github.com/brislink/Abstract" target="_blank" style="text-decoration:none;"><i class="icon-github icon-2x"></i></a>   
          <div class="row-fluid">
+             
             <div class="span8 offset3">
                 <ul class="muted inline unstyled pull-right subNav">
                     <li><a href="#" id="createNew">NEW</a></li>
@@ -20,7 +22,15 @@
                 </div>
              </div>
            </div>
-      
+     
+      <div class="container-fluid">
+         <div class="row-fluid">
+            <div class="offset3">
+                <span id="saveStatus" style="margin-top:10px;" class="text-success hiddenElement saveStatus">Draft saved</span>
+             </div> 
+             
+             </div>
+    </div>      
     <div class="container-fluid" id="editContainer">
          <div class="row-fluid">
             <div class="span8 offset3">
@@ -54,14 +64,7 @@
               </div>
           </div>
       </div>
-     <div class="container-fluid">
-         <div class="row-fluid">
-            <div class="offset3">
-                <p id="saveStatus" style="margin-top:10px;" class="text-success hiddenElement saveStatus">Draft saved</p>
-             </div> 
-             
-             </div>
-    </div>      
+     
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
       <script type="text/javascript" src="javascript/markdown.js"></script>
       <script type="text/javascript" src="javascript/jquery.autosize.js"></script>
