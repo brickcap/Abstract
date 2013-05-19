@@ -40,7 +40,6 @@
     var isTitleEmpty = $("#title").text().trim()=== '';
     var isDraftEmpty = $("#editArea").val() === '';
     var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
-        console.log($("#title").text()+ isTitleEmpty);
         if(isTitleEmpty){
             $("#title").focus();
         }
@@ -49,7 +48,7 @@
             
             editArea.focus();
         }
-        console.log(hasTitileAndDraft);
+        
         if(hasTitileAndDraft){
         saveCurrentDraft();
         $("#saveStatus").fadeIn().show().delay(1000).fadeOut();
