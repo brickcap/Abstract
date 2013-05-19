@@ -83,7 +83,7 @@
         var item = getDraftFromKey(title);
         var parsed = JSON.parse(item);
         hideThis(["#drafts"]);         
-        editArea.val(parsed.text);
+        editArea.val(parsed.text).trigger('autosize');
         $("#title").text(title);
         $("#wordCount").text(parsed.wordCount);
         showThis([editArea,"#editContainer","#title",'#saveDraft']);
