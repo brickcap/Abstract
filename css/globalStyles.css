@@ -42,3 +42,8 @@ body,textarea,li{
     cursor: pointer;
 }
 
+.subnav li{
+    
+    font-size : 12px;
+    letter-spacing: 2px; 
+};
