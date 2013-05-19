@@ -64,6 +64,6 @@ function validateInputOnFousOut(){
   var isTitleEmpty = $("#title").text().trim()=== '';
   var isDraftEmpty = $("#editArea").val() === '';
   var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
-  return hasTitileAndDraft();    
+  return hasTitileAndDraft;    
            
 }
