@@ -30,7 +30,7 @@ body,textarea,li{
     display:none;
 }
 
-.subNav,.draftList,.saveStatus{
+.subNav,.draftList,.saveStatus,.subNav li{
     
     letter-spacing:2px;
     font-size: 12px;
@@ -42,8 +42,3 @@ body,textarea,li{
     cursor: pointer;
 }
 
-li.subnav {
-    
-    font-size : 12px;
-    letter-spacing: 2px; 
-};
