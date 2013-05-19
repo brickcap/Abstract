@@ -11,7 +11,7 @@
         hideThis([this,'#plain']);       
         showThis(["#rawHtml",'#previewContainer']);
         saveCurrentDraft();
-        $("#saveStatus").fadeIn().show();
+        $("#saveStatus").fadeIn().show().delay(1000).fadeOut();
     }
         
         
