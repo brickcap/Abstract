@@ -1,7 +1,4 @@
-    $(function(){    
-    
-        
-   
+    $(function(){
         
     var editArea = prepareInitialWorkSpace();
     
