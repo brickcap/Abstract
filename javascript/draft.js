@@ -17,14 +17,8 @@ function loadSavedDrafts(){
         var data = [];
         for(var i =0;i< keys.length; i++){
             var parsed = JSON.parse(localStorage[keys[i]]);
-            var draft = {};
-            var count = parsed.wordCount;
-            draft["date"] = new Date(parsed.time).toDateString();
-            draft["count"] = count;
-            draft["title"] = keys[i];
-            draft["plural"] = count > 1 ; 
-            draft["trueDate"] = parsed.time;
-            data.push(draft);
+            var initializeDraft = new draft(parsed, keys[i]);
+            data.push(initializeDraft);
         }
         
         return sortedArray(data);
@@ -34,8 +28,8 @@ function loadSavedDrafts(){
     function renderSavedDrafts(){
         
         var array = buildData(loadSavedDrafts());
-        var bindings = new draftBindings(array);
-        ko.applyBindings(bindings,document.getElementById('drafts'));
+        var initializeDrafts = new drafts(array);
+        ko.applyBindings(initializeDrafts,document.getElementById('drafts'));
     }
 
 function saveCurrentDraft(){
