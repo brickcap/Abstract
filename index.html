@@ -70,7 +70,7 @@
                            <span data-bind="text:count"></span>
                               <span data-bind="if:plural">words</span>
                               <span data-bind="if:!plural">word</span>
-                            <a href='#' class='text-error'>Delete</a>
+                            <a href='#' class='text-error' data-bind="click: $parent.deleteDraft">Delete</a>
                           </div>
                            
                       </li>

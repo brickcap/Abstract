@@ -6,16 +6,22 @@ var draft = function(parsed,title){
     self.count = wordCount;
     self.title = title;
     self.plural = wordCount > 1;
-    self.trueDate = parsed.trueDate;
+    self.trueDate = new Date(parsed.time);
     
 };
 
 
 
 var drafts = function(drafts){
-     
+    
      var self = this;
      
      self.drafts = ko.observableArray(drafts);
+    
+    self.deleteDraft = function(draft,event){
+        event.stopPropagation();
+        removeDraft(draft.title);
+       self.drafts.remove(draft);        
+    }
  };
 

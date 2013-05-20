@@ -57,31 +57,6 @@
         editArea.val('');
         $("#title").text('');     
         
-    });
-        
-        $("ol").on('click','.draftListItems',function(){
-            
-        var title = $(this).data().title;
-        var item = getDraftFromKey(title);
-        var parsed = JSON.parse(item);
-        hideThis(["#drafts"]);         
-        editArea.val(parsed.text).trigger('autosize');
-        $("#title").text(title);
-        $("#wordCount").text(parsed.wordCount);
-        showThis([editArea,"#editContainer","#title"]);
-        
- }); 
-        
-$("ol").on('click','a',function(e){
-    
-    e.stopPropagation();
-    var parent = $(this).parents('li');
-    var key = parent.data().title;
-    removeDraft(key);
-    $(parent).hide();
-    
-});        
-    
-        
+    });     
  
 }); 
