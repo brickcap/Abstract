@@ -28,14 +28,14 @@ var viewModel = function(drafts){
     }
     
     self.showEditor = ko.observable(true);
-    self.showTitle = ko.observable(true)
+    self.showTitle = ko.observable(true);
     self.showDrafts = function(){
         self.showEditor(false);
         self.showTitle(false);
         renderSavedDrafts();
             hideThis(["#previewContainer"]);
             showThis(["#drafts"]);
-    }
+    };
     
     self.newDraft = function(){
         hideThis(["#previewContainer", "#drafts"]);
@@ -43,10 +43,31 @@ var viewModel = function(drafts){
         self.showEditor(true);
         editArea.focus();
             editArea.val('');
-            $("#title").text('');
-
+            $("#title").text('');        
+    };
+    
+    self.showPreview = function(){
         
-    }
+        if (validateInputOnFousOut()) {
+
+                setHtmlinPreviewPane(getMarkdownText());
+                hideThis(['#plain']);
+                self.showEditor(false);
+                self.showTitle(true);
+                showThis(["#rawHtml", '#previewContainer']);
+                saveCurrentDraft();
+                $("#saveStatus").fadeIn().show().delay(1000).fadeOut();
+            }
+
+    };
+    
+    self.hidePreview = function(){
+        hideThis(["#previewContainer"]);
+            self.showEditor(true);
+            editArea.trigger('autosize');
+            editArea.focus();
+
+    };
  };
         function prepareInitialWorkSpace() {
 
@@ -173,28 +194,8 @@ var viewModel = function(drafts){
         var editArea = prepareInitialWorkSpace();
 
 
-        editArea.focusout(function () {
-
-            if (validateInputOnFousOut()) {
-
-                setHtmlinPreviewPane(getMarkdownText());
-                hideThis([this, '#plain']);
-                showThis(["#rawHtml", '#previewContainer']);
-                saveCurrentDraft();
-                $("#saveStatus").fadeIn().show().delay(1000).fadeOut();
-            }
-
-
-        });
-
-        $("#previewContainer").click(function () {
-
-            hideThis([this]);
-            editArea.show();
-            editArea.trigger('autosize');
-            editArea.focus();
-        });
-
+        
+        
         $("ol").on('click', '.draftListItems', function () {
 
             var title = $(this).data().title;

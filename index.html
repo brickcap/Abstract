@@ -36,10 +36,10 @@
             <div class="row-fluid" id="editContainer">
                 <div class="span8 offset3">
                     <div contenteditable="true" id="title" data-bind="visible:showTitle()">&#xfeff;</div>
-                    <textarea class="span12" id="editArea" data-bind="visible:showEditor()"></textarea>
+                    <textarea class="span12" id="editArea" data-bind="visible:showEditor(),event:{focusout:showPreview}"></textarea>
                 </div>
             </div>
-            <div class="row-fluid hiddenElement" id="previewContainer">
+            <div class="row-fluid hiddenElement" id="previewContainer" data-bind="click : hidePreview">
                 <div class="span8 offset3 ">
                     <div class="span12" id="previewPane">Preview</div>
                     <ul class="unstyled inline muted previewFeedback">
