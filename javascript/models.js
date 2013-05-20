@@ -12,11 +12,11 @@ var draft = function(parsed,title){
 
 
 
-var viewModel = function(drafts){
+var viewModel = function(){
     
      var self = this;
      
-     self.drafts = ko.observableArray(drafts);
+     self.drafts = ko.observableArray([]);
     
     self.deleteDraft = function(draft,event){
         event.stopPropagation();
