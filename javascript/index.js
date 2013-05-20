@@ -81,5 +81,7 @@ $("ol").on('click','a',function(e){
     $(parent).hide();
     
 });        
+    
+        
  
 }); 

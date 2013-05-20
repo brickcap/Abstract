@@ -59,7 +59,16 @@
       <div class="container-fluid hiddenElement" id= "drafts">
           <div class="row-fluid">
               <div class="span8 offset3">
-                  <ol id="draftList">
+                  <ol id="draftList" data-bind="foreach:drafts">
+                      <li data-bind="attr:{'data-title':title}" class='draftListItems'>
+                          <p data-bind="text:title"><span class='muted draftList'data-bind="text:'('+date+')'"> 
+                              </span>
+                          </p> 
+<!--                          <p class='muted draftList' data-bind="text:count()"> -->
+                              <a href='#' class='text-error'>Delete</a>
+<!--                          </p> -->
+                          <hr/> 
+                      </li>
                   </ol>
               </div>
           </div>
@@ -69,7 +78,7 @@
       <script type="text/javascript" src="javascript/markdown.js"></script>
       <script type="text/javascript" src="javascript/jquery.autosize.js"></script>
       <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-2.2.1.js"></script>
-      <script src="javascript/mustache.js"></script>
+      <script type="text/javascript" src="javascript/bindings.js"></script>
       <script type="text/javascript" src="javascript/helpers.js"></script>
       <script type="text/javascript" src="javascript/draft.js"></script>
       <script src="javascript/index.js"></script>
