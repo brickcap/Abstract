@@ -1,3 +1,6 @@
+var initializeDrafts = new drafts();
+ko.applyBindings(initializeDrafts,document.getElementById('drafts'));
+
 function loadSavedDrafts(){
         return Object.keys(localStorage);
     }
@@ -25,11 +28,9 @@ function loadSavedDrafts(){
         
     }
     
-    function renderSavedDrafts(){
-        
+    function renderSavedDrafts(){        
         var array = buildData(loadSavedDrafts());
-        var initializeDrafts = new drafts(array);
-        ko.applyBindings(initializeDrafts,document.getElementById('drafts'));
+        initializeDrafts.drafts(array);
     }
 
 function saveCurrentDraft(){
