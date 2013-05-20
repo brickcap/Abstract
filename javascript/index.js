@@ -68,6 +68,20 @@ var viewModel = function(drafts){
             editArea.focus();
 
     };
+    
+    self.editDraft = function(draft){
+        
+         var title = draft.title;
+            var item = getDraftFromKey(title);
+            var parsed = JSON.parse(item);
+            hideThis(["#drafts"]);
+            editArea.val(parsed.text).trigger('autosize');
+            $("#title").text(title);
+            $("#wordCount").text(parsed.wordCount);
+            self.showEditor(true);
+            self.showTitle(true);
+        
+    };
  };
         function prepareInitialWorkSpace() {
 
@@ -192,22 +206,6 @@ var viewModel = function(drafts){
         }
 
         var editArea = prepareInitialWorkSpace();
-
-
-        
-        
-        $("ol").on('click', '.draftListItems', function () {
-
-            var title = $(this).data().title;
-            var item = getDraftFromKey(title);
-            var parsed = JSON.parse(item);
-            hideThis(["#drafts"]);
-            editArea.val(parsed.text).trigger('autosize');
-            $("#title").text(title);
-            $("#wordCount").text(parsed.wordCount);
-            showThis([editArea, "#editContainer", "#title"]);
-        });
-
 
         $("#rawHtml").click(function (e) {
 

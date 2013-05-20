@@ -58,7 +58,7 @@
                 <div class="span8 offset3">
                     
                     <ol id="draftList" data-bind="foreach:drafts">
-                        <li data-bind="attr:{'data-title':title}" class='draftListItems'>
+                        <li data-bind="attr:{'data-title':title},click: $parent.editDraft" class='draftListItems'>
                             <div>
 <span data-bind="text:title"></span> 
 <span class='muted draftList' data-bind="text:'(' +date+')'"> </span>
