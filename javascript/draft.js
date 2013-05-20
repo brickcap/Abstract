@@ -35,7 +35,6 @@ function loadSavedDrafts(){
         
         var array = buildData(loadSavedDrafts());
         var bindings = new draftBindings(array);
-        console.log(array);
         ko.applyBindings(bindings,document.getElementById('drafts'));
     }
 
