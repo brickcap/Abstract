@@ -26,6 +26,27 @@ var viewModel = function(drafts){
         removeDraft(draft.title);
        self.drafts.remove(draft);        
     }
+    
+    self.showEditor = ko.observable(true);
+    self.showTitle = ko.observable(true)
+    self.showDrafts = function(){
+        self.showEditor(false);
+        self.showTitle(false);
+        renderSavedDrafts();
+            hideThis(["#previewContainer"]);
+            showThis(["#drafts"]);
+    }
+    
+    self.newDraft = function(){
+        hideThis(["#previewContainer", "#drafts"]);
+        self.showTitle(true);
+        self.showEditor(true);
+        editArea.focus();
+            editArea.val('');
+            $("#title").text('');
+
+        
+    }
  };
         function prepareInitialWorkSpace() {
 
@@ -203,22 +224,7 @@ var viewModel = function(drafts){
             showThis(["#rawHtml"]);
         });
 
-        $("#renderSavedDrafts").click(function () {
+        
 
-            renderSavedDrafts();
-            hideThis(["#previewContainer", "#editContainer"]);
-            showThis(["#drafts"]);
-        });
-
-        $("#createNew").click(function () {
-            hideThis(["#previewContainer", "#drafts"]);
-
-            showThis(["#editContainer", "#editArea"]);
-
-            editArea.focus();
-            editArea.val('');
-            $("#title").text('');
-
-        });
-
+        
     });

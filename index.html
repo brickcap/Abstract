@@ -18,9 +18,9 @@
             <div class="row-fluid" id="subNav">
                 <div class="span8 offset3">
                     <ul class="muted inline unstyled pull-right subNav">
-                        <li><a href="#" id="createNew">NEW</a>
+                        <li><a href="#" id="createNew" data-bind="click:newDraft">NEW</a>
                         </li>
-                        <li><a href="#" id="renderSavedDrafts">DRAFTS</a>
+                        <li><a href="#" id="renderSavedDrafts" data-bind="click : showDrafts">DRAFTS</a>
                         </li>
                         <li><a href="http://www.brislink.com/" target="_blank">BRISLINK</a>
                         </li>
@@ -35,8 +35,8 @@
             </div>
             <div class="row-fluid" id="editContainer">
                 <div class="span8 offset3">
-                    <div contenteditable="true" id="title">&#xfeff;</div>
-                    <textarea class="span12" id="editArea"></textarea>
+                    <div contenteditable="true" id="title" data-bind="visible:showTitle()">&#xfeff;</div>
+                    <textarea class="span12" id="editArea" data-bind="visible:showEditor()"></textarea>
                 </div>
             </div>
             <div class="row-fluid hiddenElement" id="previewContainer">
@@ -84,7 +84,6 @@
         <script type="text/javascript" src="javascript/markdown.js"></script>
         <script type="text/javascript" src="javascript/jquery.autosize.js"></script>
         <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-2.2.1.js"></script>
-        <script type="text/javascript" src="javascript/models.js"></script>
         <script src="javascript/index.js"></script>
         
     </body>
