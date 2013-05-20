@@ -24,6 +24,19 @@
         editArea.trigger('autosize');
         editArea.focus();
     });
+        
+            $("ol").on('click','.draftListItems',function(){
+            
+        var title = $(this).data().title;
+        var item = getDraftFromKey(title);
+        var parsed = JSON.parse(item);
+        hideThis(["#drafts"]);         
+        editArea.val(parsed.text).trigger('autosize');
+        $("#title").text(title);
+        $("#wordCount").text(parsed.wordCount);
+        showThis([editArea,"#editContainer","#title"]);
+ }); 
+
     
     $("#rawHtml").click(function(e){
         
