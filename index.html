@@ -67,9 +67,12 @@
                             <span class='muted draftList' data-bind="text:'(' +date+')'"> </span>
                           </div> 
                           <div class='muted draftList'>
-                           <span data-bind="text:count"></span> <a href='#' class='text-error'>Delete</a>
+                           <span data-bind="text:count"></span>
+                              <span data-bind="if:plural">words</span>
+                              <span data-bind="if:!plural">word</span>
+                            <a href='#' class='text-error'>Delete</a>
                           </div>
-                          <hr/> 
+                           
                       </li>
                   </ol>
               </div>

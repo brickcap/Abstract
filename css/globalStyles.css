@@ -40,5 +40,6 @@ body,textarea,li{
 .draftListItems{
     
     cursor: pointer;
+    border-bottom: 1px solid whtesmoke;
 }
 
