@@ -1,84 +1,91 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Abstract</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
-<link href="css/globalStyles.css" rel="stylesheet">
-</head>
-<body>      
-<div class="container-fluid">
-<a href="https://github.com/brislink/Abstract" target="_blank" style="text-decoration:none;">
+    
+    <head>
+        <title>Abstract</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/globalStyles.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+            <a href="https://github.com/brislink/Abstract" target="_blank" style="text-decoration:none;">
 <i class="icon-github icon-2x"></i>
-</a>   
-<div class="row-fluid" id="subNav">
 
-<div class="span8 offset3">
-<ul class="muted inline unstyled pull-right subNav">
-<li><a href="#" id="createNew">NEW</a></li>
-<li><a href="#" id="renderSavedDrafts">DRAFTS</a></li>
-<li><a href="http://www.brislink.com/" target="_blank">BRISLINK</a></li>
-</ul>
-</div>
-</div>
-<div class="row-fluid">
-<div class="offset3">
+            </a>
+            <div class="row-fluid" id="subNav">
+                <div class="span8 offset3">
+                    <ul class="muted inline unstyled pull-right subNav">
+                        <li><a href="#" id="createNew">NEW</a>
+                        </li>
+                        <li><a href="#" id="renderSavedDrafts">DRAFTS</a>
+                        </li>
+                        <li><a href="http://www.brislink.com/" target="_blank">BRISLINK</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="offset3">
 <span id="saveStatus" style="margin-top:10px;" class="text-success hiddenElement saveStatus">Draft saved</span>
-</div> 
 
-</div>
-<div class="row-fluid" id="editContainer">
-<div class="span8 offset3">
-
-<div contenteditable="true" id="title">&#xfeff;</div>
-<textarea class="span12" id="editArea"></textarea>
-
-</div>
-</div>
-<div class="row-fluid hiddenElement" id="previewContainer">
-<div class="span8 offset3 ">
-<div class="span12" id ="previewPane">Preview</div>
-<ul class="unstyled inline muted previewFeedback">
-<li>preview</li>
-<li id="wordCount"></li>
-<li><a href="#" id="rawHtml">raw</a></li>
-<li><a href="#" id="plain" class="hiddenElement">plain</a></li>
-</ul>
-
-</div>
-</div>
-
-</div>
-    <div class="container-fluid hiddenElement" id="drafts">
-        <div class="row-fluid" >
-<div class="span8 offset3">
-<ol id="draftList" data-bind="foreach:drafts">
-<li data-bind="attr:{'data-title':title}" class='draftListItems'>
-<div>
-<span  data-bind="text:title"></span> 
-
+                </div>
+            </div>
+            <div class="row-fluid" id="editContainer">
+                <div class="span8 offset3">
+                    <div contenteditable="true" id="title">&#xfeff;</div>
+                    <textarea class="span12" id="editArea"></textarea>
+                </div>
+            </div>
+            <div class="row-fluid hiddenElement" id="previewContainer">
+                <div class="span8 offset3 ">
+                    <div class="span12" id="previewPane">Preview</div>
+                    <ul class="unstyled inline muted previewFeedback">
+                        <li>preview</li>
+                        <li id="wordCount"></li>
+                        <li><a href="#" id="rawHtml">raw</a>
+                        </li>
+                        <li><a href="#" id="plain" class="hiddenElement">plain</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid hiddenElement" id="drafts">
+            <div class="row-fluid">
+                <div class="span8 offset3">
+                    <ol id="draftList" data-bind="foreach:drafts">
+                        <li data-bind="attr:{'data-title':title}" class='draftListItems'>
+                            <div>
+<span data-bind="text:title"></span> 
 <span class='muted draftList' data-bind="text:'(' +date+')'"> </span>
-</div> 
-<div class='muted draftList'>
-<span data-bind="text:count"></span>
-<span data-bind="if:plural">words</span>
-<span data-bind="if:!plural">word</span>
-<a href='#' class='text-error' data-bind="click: $parent.deleteDraft">Delete</a>
-</div>
 
-</li>
-</ol>
-</div>
-</div>
-</div>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="javascript/markdown.js"></script>
-<script type="text/javascript" src="javascript/jquery.autosize.js"></script>
-<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-2.2.1.js"></script>
-<script type="text/javascript" src="javascript/models.js"></script>
-<script type="text/javascript" src="javascript/helpers.js"></script>
-<script type="text/javascript" src="javascript/draft.js"></script>
-<script src="javascript/index.js"></script>
-</body>
+                            </div>
+                            <div class='muted draftList'>
+<span data-bind="text:count"></span>
+
+<span data-bind="if:plural">words</span>
+
+<span data-bind="if:!plural">word</span>
+
+<a href='#' class='text-error' data-bind="click: $parent.deleteDraft">Delete</a>
+
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="javascript/markdown.js"></script>
+        <script type="text/javascript" src="javascript/jquery.autosize.js"></script>
+        <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-2.2.1.js"></script>
+        <script type="text/javascript" src="javascript/models.js"></script>
+        <script type="text/javascript" src="javascript/helpers.js"></script>
+        <script type="text/javascript" src="javascript/draft.js"></script>
+        <script src="javascript/index.js"></script>
+    </body>
+
 </html>
