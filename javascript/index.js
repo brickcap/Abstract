@@ -27,14 +27,6 @@ var viewModel = function(drafts){
        self.drafts.remove(draft);        
     }
  };
-
-
-
-
-
-
-
-
         function prepareInitialWorkSpace() {
 
             var editArea = $("#editArea");
