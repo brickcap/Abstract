@@ -36,12 +36,7 @@ function loadSavedDrafts(){
         var array = buildData(loadSavedDrafts());
         var bindings = new draftBindings(array);
         console.log(array);
-        ko.applyBindings(bindings,document.getElementById(drafts));
-//        var data = {};
-//        data["keys"] = buildData(loadSavedDrafts());
-//        var template = "{{#keys}}<li data-title='{{title}}' class='draftListItems'><p>{{title}} <span class='muted draftList'> ({{date}})</span></p> <p class='muted draftList '> {{count}} word{{#plural}}s{{/plural}} <a href='#' class='text-error'>Delete</a></p> <hr/> </li>{{/keys}}";
-//        var html = Mustache.render(template,data);
-//        $("#draftList").html(html);
+        ko.applyBindings(bindings,document.getElementById('drafts'));
     }
 
 function saveCurrentDraft(){
