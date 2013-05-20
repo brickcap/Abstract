@@ -12,7 +12,7 @@ var draft = function(parsed,title){
 
 
 
-var drafts = function(drafts){
+var viewModel = function(drafts){
     
      var self = this;
      

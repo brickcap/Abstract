@@ -1,5 +1,5 @@
-var initializeDrafts = new drafts();
-ko.applyBindings(initializeDrafts,document.getElementById('drafts'));
+var initializeDrafts = new viewModel();
+ko.applyBindings(initializeDrafts);
 
 function loadSavedDrafts(){
         return Object.keys(localStorage);
