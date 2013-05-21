@@ -224,10 +224,7 @@ $(function () {
 
     var editArea = prepareInitialWorkSpace();
 
-    $("#rawHtml").click(function (e) {
-
-        
-    });
+   
 
     $("#plain").click(function (e) {
 
