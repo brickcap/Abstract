@@ -87,6 +87,17 @@ $(function () {
             self.showTitle(true);
 
         };
+        
+        self.rawHtml = function(data,event){
+            
+        setRawHtml();
+        event.stopPropagation();
+        self.raw(false);
+            
+        }
+        
+        self.plain = function(data,event){
+        }
     };
 
     function prepareInitialWorkSpace() {
@@ -215,10 +226,7 @@ $(function () {
 
     $("#rawHtml").click(function (e) {
 
-        setRawHtml();
-        e.stopPropagation();
-        hideThis([this]);
-        showThis(["#plain"]);
+        
     });
 
     $("#plain").click(function (e) {
