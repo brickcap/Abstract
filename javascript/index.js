@@ -228,8 +228,4 @@ $(function () {
         hideThis([this]);
         showThis(["#rawHtml"]);
     });
-
-
-
-
 });
