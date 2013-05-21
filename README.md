@@ -1,29 +1,30 @@
-### What is abstract? 
+ What is abstract? 
+-----------------------
 
 Abstract is an open source writing tool for the writers on the web. It is very simple to use. Takes markdown as input and produces a valid html output.You can try it live [here](http://brislink.github.io/Abstract/)
 
 
-###Some screenshots
----
+Some screenshots
+-----------------------
 
 __Editor__
 
 ![editor](http://farm3.staticflickr.com/2821/8753783879_697a3abb2c_b.jpg)
 
----
+
 __Preview__
 
 ![preview](http://farm3.staticflickr.com/2806/8754906982_9befe255bd_b.jpg)
 
-----
+
 
 __Drafts__
 
 ![drafts](http://farm4.staticflickr.com/3772/8751906815_56885201b8_b.jpg)
 
-----
 
-### Features
+ Features
+-------------
 
 1.  Abstract is built using pure *html*, *css* and *javascript*. 
 
@@ -39,10 +40,10 @@ __Drafts__
 
 If you need a place to share your thoughts try [brislink] (http://www.brislink.com/) , a new kind of publishing platform.
 
-----
 
 
-###License
+License
+----------------
 
 The MIT License (MIT)
 
