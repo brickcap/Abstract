@@ -97,6 +97,11 @@ $(function () {
         }
         
         self.plain = function(data,event){
+            
+        setPlain();
+        event.stopPropagation();
+        self.raw(true);
+            
         }
     };
 
@@ -222,15 +227,5 @@ $(function () {
         localStorage.removeItem(key);
     }
 
-    var editArea = prepareInitialWorkSpace();
-
-   
-
-    $("#plain").click(function (e) {
-
-        setPlain();
-        e.stopPropagation();
-        hideThis([this]);
-        showThis(["#rawHtml"]);
-    });
+    var editArea = prepareInitialWorkSpace();    
 });
