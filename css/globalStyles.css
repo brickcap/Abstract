@@ -50,3 +50,11 @@ font-weight: 300;
 line-height: 25px;
 font-style:italic;
 }
+
+textarea,textarea:focus{
+    
+    border:none;
+    box-shadow:none;
+    resize: none;
+    outline:none;
+}
