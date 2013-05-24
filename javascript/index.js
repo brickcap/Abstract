@@ -13,6 +13,7 @@ $(function () {
     var plainViewButton = $("#plain");
     var createNewButton = $("#createNew");
     var showDraftsButton = $("#renderSavedDrafts");
+    var wordCountLabel = $("#wordCount");
     
     
     var draft = function (parsed, title) {
