@@ -1,6 +1,6 @@
 $(function () {
 
-//Static variables
+//Static variables cached in one place.
     
     var previewContainerView = $("#previewContainer");
     var editAreaView = $("#editArea");
@@ -49,8 +49,8 @@ $(function () {
             self.showEditor(false);
             self.showTitle(false);
             renderSavedDrafts();
-            hideThis(["#previewContainer"]);
-            showThis(["#drafts"]);
+            previewContainerView.hide();
+            draftsView.show();
 
         };
 
@@ -70,7 +70,7 @@ $(function () {
             if (validateInputOnFousOut()) {
 
                 setHtmlinPreviewPane(getMarkdownText());
-                hideThis(['#plain']);
+                plainViewButton.hide();
                 self.showEditor(false);
                 self.showTitle(true);
                 showThis(["#rawHtml", '#previewContainer']);
@@ -131,18 +131,12 @@ $(function () {
 
     function hideThis(elements) {
 
-        for (var i = 0; i < elements.length; i++) {
-
-            $(elements[i]).hide();
-        }
+        $(elements.join(',')).hide();
     }
 
     function showThis(elements) {
 
-        for (var i = 0; i < elements.length; i++) {
-
-            $(elements[i]).show();
-        }
+        $(elements.join(',')).show();
     }
 
     function getMarkdownText() {
