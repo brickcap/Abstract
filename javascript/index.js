@@ -151,7 +151,7 @@ $(function () {
     }
 
     function setHtmlinPreviewPane(markdownText) {
-        $("#wordCount").text('words: ' + getWordCount(markdownText));
+        wordCountLabel.text('words: ' + getWordCount(markdownText));
         previewPaneView.html(markdown.toHTML(markdownText));
     }
 
