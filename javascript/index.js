@@ -1,8 +1,5 @@
-$(function () {
-
-//Static variables cached in one place.
-    
-    var previewContainerView = $("#previewContainer");
+$(function(){
+var previewContainerView = $("#previewContainer");
     var editAreaView = $("#editArea");
     var draftsView = $("#drafts");
     var editContainerView = $("#editContainer");
@@ -15,9 +12,8 @@ $(function () {
     var createNewButton = $("#createNew");
     var showDraftsButton = $("#renderSavedDrafts");
     var wordCountLabel = $("#wordCount");
-    
-    
-    var draft = function (parsed, title) {
+
+var draft = function (parsed, title) {
 
         var self = this;
         var wordCount = parsed.wordCount;
@@ -103,29 +99,28 @@ $(function () {
             self.showTitle(true);
 
         };
-        
+
         self.rawHtml = function(data,event){
-            
+
         setRawHtml();
         event.stopPropagation();
         self.raw(false);
-            
+
         };
-        
+
         self.plain = function(data,event){
-            
+
         setPlain();
         event.stopPropagation();
         self.raw(true);
-            
+
         };
     };
 
     var initializeDrafts = new viewModel();
     ko.applyBindings(initializeDrafts);
 
-    
-    function prepareInitialWorkSpace() {
+function prepareInitialWorkSpace() {
 
         var editArea = $("#editArea");
         editArea.autosize();
@@ -159,11 +154,11 @@ $(function () {
     }
 
     function setRawHtml() {
-        
+
         previewPaneView.text(previewPaneView.html());
     }
 
-    function setPlain() {       
+    function setPlain() {
         previewPaneView.html(previewPaneView.text());
     }
 
@@ -182,8 +177,8 @@ $(function () {
         return hasTitileAndDraft;
 
     }
+var editArea = prepareInitialWorkSpace();
 
-  
     function loadSavedDrafts() {
         return Object.keys(localStorage);
     }
@@ -236,5 +231,5 @@ $(function () {
         localStorage.removeItem(key);
     }
 
-    var editArea = prepareInitialWorkSpace();    
+
 });
