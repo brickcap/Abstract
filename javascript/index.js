@@ -121,6 +121,10 @@ $(function () {
         }
     };
 
+    var initializeDrafts = new viewModel();
+    ko.applyBindings(initializeDrafts);
+
+    
     function prepareInitialWorkSpace() {
 
         var editArea = $("#editArea");
@@ -179,9 +183,7 @@ $(function () {
 
     }
 
-    var initializeDrafts = new viewModel();
-    ko.applyBindings(initializeDrafts);
-
+  
     function loadSavedDrafts() {
         return Object.keys(localStorage);
     }
