@@ -1,6 +1,20 @@
 $(function () {
 
-
+//Static variables
+    
+    var previewContainerView = $("#previewContainer");
+    var editAreaView = $("#editArea");
+    var draftsView = $("#drafts");
+    var editContainerView = $("#editContainer");
+    var previewPaneView = $("#preivewPane");
+    var draftsListView = $("#drafts");
+    var saveStatusNotification = $("#saveStatus");
+    var rawHtmlButton = $("#rawHtml");
+    var plainViewButton = $("#plain");
+    var createNewButton = $("#createNew");
+    var showDraftsButton = $("#renderSavedDrafts");
+    
+    
     var draft = function (parsed, title) {
 
         var self = this;
