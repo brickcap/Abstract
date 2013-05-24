@@ -1,4 +1,4 @@
-$(function(){
+
     
 var previewContainerView = $("#previewContainer");
     var editAreaView = $("#editArea");

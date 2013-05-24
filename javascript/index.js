@@ -1,4 +1,5 @@
 $(function(){
+    $(function(){
     
 var previewContainerView = $("#previewContainer");
     var editAreaView = $("#editArea");
@@ -233,5 +234,7 @@ function loadSavedDrafts() {
         localStorage.removeItem(key);
     }
 
+
+});
 
 });
