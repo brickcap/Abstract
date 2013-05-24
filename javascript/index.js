@@ -6,7 +6,7 @@ $(function () {
     var editAreaView = $("#editArea");
     var draftsView = $("#drafts");
     var editContainerView = $("#editContainer");
-    var previewPaneView = $("#preivewPane");
+    var previewPaneView = $("#previewPane");
     var draftsListView = $("#drafts");
     var titleContainer = $("#title");
     var saveStatusNotification = $("#saveStatus");
@@ -141,8 +141,7 @@ $(function () {
     }
 
     function getMarkdownText() {
-
-        return editAreaView.val();
+        return editArea.val();
     }
 
     function getWordCount(text) {
@@ -157,11 +156,11 @@ $(function () {
 
     function setRawHtml() {
         
-        previewPaneView.text(pane.html());
+        previewPaneView.text(previewPaneView.html());
     }
 
     function setPlain() {       
-        previewPaneView.html(pane.text());
+        previewPaneView.html(previewPaneView.text());
     }
 
 
