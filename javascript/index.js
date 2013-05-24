@@ -110,7 +110,7 @@ $(function () {
         event.stopPropagation();
         self.raw(false);
             
-        }
+        };
         
         self.plain = function(data,event){
             
@@ -118,7 +118,7 @@ $(function () {
         event.stopPropagation();
         self.raw(true);
             
-        }
+        };
     };
 
     var initializeDrafts = new viewModel();
