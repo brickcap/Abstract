@@ -8,6 +8,7 @@ $(function () {
     var editContainerView = $("#editContainer");
     var previewPaneView = $("#preivewPane");
     var draftsListView = $("#drafts");
+    var titleContainer = $("#title");
     var saveStatusNotification = $("#saveStatus");
     var rawHtmlButton = $("#rawHtml");
     var plainViewButton = $("#plain");
@@ -75,14 +76,14 @@ $(function () {
                 self.showTitle(true);
                 showThis(["#rawHtml", '#previewContainer']);
                 saveCurrentDraft();
-                $("#saveStatus").fadeIn().show().delay(1000).fadeOut();
+                saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
             }
 
         };
 
         self.hidePreview = function () {
 
-            hideThis(["#previewContainer"]);
+            previewContainerView.hide();
             self.showEditor(true);
             editArea.trigger('autosize');
             editArea.focus();
@@ -94,10 +95,10 @@ $(function () {
             var title = draft.title;
             var item = getDraftFromKey(title);
             var parsed = JSON.parse(item);
-            hideThis(["#drafts"]);
+            draftsView.hide();
             editArea.val(parsed.text).trigger('autosize');
-            $("#title").text(title);
-            $("#wordCount").text(parsed.wordCount);
+            titleContainer.text(title);
+            wordCountLabel.text(parsed.wordCount);
             self.showEditor(true);
             self.showTitle(true);
 
@@ -124,7 +125,7 @@ $(function () {
 
         var editArea = $("#editArea");
         editArea.autosize();
-        $("#title").focus();
+        titleContainer.focus();
         return editArea;
 
     }
@@ -141,7 +142,7 @@ $(function () {
 
     function getMarkdownText() {
 
-        return $("#editArea").val();
+        return editAreaView.val();
     }
 
     function getWordCount(text) {
@@ -151,18 +152,16 @@ $(function () {
 
     function setHtmlinPreviewPane(markdownText) {
         $("#wordCount").text('words: ' + getWordCount(markdownText));
-        $("#previewPane").html(markdown.toHTML(markdownText));
+        previewPaneView.html(markdown.toHTML(markdownText));
     }
 
     function setRawHtml() {
-        var pane = $("#previewPane");
-        pane.text(pane.html());
+        
+        previewPaneView.text(pane.html());
     }
 
-    function setPlain() {
-
-        var pane = $("#previewPane");
-        pane.html(pane.text());
+    function setPlain() {       
+        previewPaneView.html(pane.text());
     }
 
 
@@ -174,8 +173,8 @@ $(function () {
 
     function validateInputOnFousOut() {
 
-        var isTitleEmpty = $("#title").text().trim() === '';
-        var isDraftEmpty = $("#editArea").val() === '';
+        var isTitleEmpty = titleContainer.text().trim() === '';
+        var isDraftEmpty = editAreaView.val() === '';
         var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
         return hasTitileAndDraft;
 
@@ -218,11 +217,11 @@ $(function () {
 
     function saveCurrentDraft() {
 
-        var key = $("#title").text();
+        var key = titleContainer.text();
         var draft = {};
         draft["time"] = new Date();
         draft["text"] = getMarkdownText();
-        draft["wordCount"] = getWordCountFromLabel($("#wordCount").text());
+        draft["wordCount"] = getWordCountFromLabel(wordCountLabel.text());
         localStorage.setItem(key, JSON.stringify(draft));
     }
 
