@@ -1,6 +1,6 @@
 
     
-var previewContainerView = $("#previewContainer");
+    var previewContainerView = $("#previewContainer");
     var editAreaView = $("#editArea");
     var draftsView = $("#drafts");
     var editContainerView = $("#editContainer");

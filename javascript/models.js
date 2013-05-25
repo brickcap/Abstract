@@ -38,7 +38,7 @@ var draft = function (parsed, title) {
 
         self.newDraft = function () {
 
-            hideThis(["#previewContainer", "#drafts"]);
+            hideThis([previewContainerView,draftsView]);
             self.showTitle(true);
             self.showEditor(true);
             editArea.focus();
@@ -55,7 +55,7 @@ var draft = function (parsed, title) {
                 plainViewButton.hide();
                 self.showEditor(false);
                 self.showTitle(true);
-                showThis(["#rawHtml", '#previewContainer']);
+                showThis(rawHtmlButton, previewContainerView);
                 saveCurrentDraft();
                 saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
             }
