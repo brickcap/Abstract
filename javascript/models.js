@@ -43,7 +43,7 @@ var draft = function (parsed, title) {
             self.showEditor(true);
             editArea.focus();
             editArea.val('');
-            $("#title").text('');
+            titleContainer.text('');
 
         };
 
