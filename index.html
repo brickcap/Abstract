@@ -16,7 +16,7 @@
 
             </a>
             <div class="row-fluid" id="subNav">
-                <div class="span8 offset3">
+                <div class="span12">
                     <ul class="muted inline unstyled pull-right subNav">
                         <li><a href="#" id="createNew" data-bind="click:newDraft">NEW</a>
                         </li>
@@ -28,19 +28,19 @@
                 </div>
             </div>
             <div class="row-fluid">
-                <div class="offset3">
+                <div class="span12">
 <span id="saveStatus" style="margin-top:10px;" class="text-success hiddenElement saveStatus">Draft saved</span>
 
                 </div>
             </div>
             <div class="row-fluid" id="editContainer">
-                <div class="span8 offset3">
+                <div class="span12">
                     <div contenteditable="true" id="title" data-bind="visible:showTitle()">&#xfeff;</div>
                     <textarea class="span12" id="editArea" data-bind="visible:showEditor(),event:{focusout:showPreview}" placeholder=" You can use markdown for your drafts. "></textarea>
                 </div>
             </div>
             <div class="row-fluid hiddenElement" id="previewContainer" data-bind="click : hidePreview">
-                <div class="span8 offset3 ">
+                <div class="span12">
                     <div class="span12" id="previewPane"></div>
                     <ul class="unstyled inline muted previewFeedback">
                         <li>preview</li>
@@ -54,7 +54,7 @@
         </div>
         <div class="container-fluid hiddenElement" id="drafts">
             <div class="row-fluid">
-                <div class="span8 offset3">
+                <div class="span12">
                     
                     <ol id="draftList" data-bind="foreach:drafts">
                         <li data-bind="attr:{'data-title':title},click: $parent.editDraft" class='draftListItems'>
@@ -81,10 +81,6 @@
             </div>
         </div>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<!--
-        <script type="text/javascript" src="javascript/markdown.js"></script>
-        <script type="text/javascript" src="javascript/jquery.autosize.js"></script>
--->
         <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-2.2.1.js"></script>
         <script src="javascript/index.min.js"></script>
         
