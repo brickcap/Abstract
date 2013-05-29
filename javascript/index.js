@@ -1836,21 +1836,26 @@ function merge_text_nodes( jsonml ) {
 } )() );
 
 
-    
-var previewContainerView = $("#previewContainer");
+
+    var rawHtmlExpression = '#rawHtml';
+    var previewContainerExpression = '#previewContainer';
+    var draftsExpression = '#drafts';
+
+    var previewContainerView = $(previewContainerExpression);
     var editAreaView = $("#editArea");
-    var draftsView = $("#drafts");
+    var draftsView = $(draftsExpression);
     var editContainerView = $("#editContainer");
     var previewPaneView = $("#previewPane");
     var draftsListView = $("#drafts");
     var titleContainer = $("#title");
     var saveStatusNotification = $("#saveStatus");
-    var rawHtmlButton = $("#rawHtml");
+    var rawHtmlButton = $(rawHtmlExpression);
     var plainViewButton = $("#plain");
     var createNewButton = $("#createNew");
     var showDraftsButton = $("#renderSavedDrafts");
     var wordCountLabel = $("#wordCount");
 
+    
 var draft = function (parsed, title) {
 
         var self = this;
@@ -1891,12 +1896,12 @@ var draft = function (parsed, title) {
 
         self.newDraft = function () {
 
-            hideThis(["#previewContainer", "#drafts"]);
+            hideThis([previewContainerExpression,draftsExpression]);
             self.showTitle(true);
             self.showEditor(true);
             editArea.focus();
             editArea.val('');
-            $("#title").text('');
+            titleContainer.val('');
 
         };
 
@@ -1908,7 +1913,7 @@ var draft = function (parsed, title) {
                 plainViewButton.hide();
                 self.showEditor(false);
                 self.showTitle(true);
-                showThis(["#rawHtml", '#previewContainer']);
+                showThis([rawHtmlExpression,previewContainerExpression]);
                 saveCurrentDraft();
                 saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
             }
@@ -1931,7 +1936,7 @@ var draft = function (parsed, title) {
             var parsed = JSON.parse(item);
             draftsView.hide();
             editArea.val(parsed.text).trigger('autosize');
-            titleContainer.text(title);
+            titleContainer.val(title);
             wordCountLabel.text(parsed.wordCount);
             self.showEditor(true);
             self.showTitle(true);
@@ -1973,8 +1978,8 @@ function prepareInitialWorkSpace() {
     }
 
     function showThis(elements) {
-
-        $(elements.join(',')).show();
+        
+       $(elements.join(',')).show();
     }
 
     function getMarkdownText() {
@@ -2009,7 +2014,7 @@ function prepareInitialWorkSpace() {
 
     function validateInputOnFousOut() {
 
-        var isTitleEmpty = titleContainer.text().trim() === '';
+        var isTitleEmpty = titleContainer.val().trim() === '';
         var isDraftEmpty = editAreaView.val() === '';
         var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
         return hasTitileAndDraft;
@@ -2052,7 +2057,7 @@ function loadSavedDrafts() {
 
     function saveCurrentDraft() {
 
-        var key = titleContainer.text();
+        var key = titleContainer.val();
         var draft = {};
         draft["time"] = new Date();
         draft["text"] = getMarkdownText();

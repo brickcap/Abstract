@@ -9,11 +9,12 @@ function prepareInitialWorkSpace() {
 
     function hideThis(elements) {
 
-        elements.join(',').hide();
+        $(elements.join(',')).hide();
     }
 
     function showThis(elements) {
-        elements.join(',').show();
+        
+       $(elements.join(',')).show();
     }
 
     function getMarkdownText() {
