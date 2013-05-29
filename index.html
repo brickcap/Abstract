@@ -35,8 +35,8 @@
             </div>
             <div class="row-fluid" id="editContainer">
                 <div class="span12">
-                    <div contenteditable="true" id="title" data-bind="visible:showTitle()">&#xfeff;</div>
-                    <textarea class="span12" id="editArea" data-bind="visible:showEditor(),event:{focusout:showPreview}" placeholder=" You can use markdown for your drafts. "></textarea>
+                    <input type="text" id="title" data-bind="visible:showTitle()" class="span12" placeholder="The title of the draft goes here">
+                    <textarea class="span12" id="editArea" data-bind="visible:showEditor(),event:{focusout:showPreview}" placeholder="The body of your draft. You can use markdown. "></textarea>
                 </div>
             </div>
             <div class="row-fluid hiddenElement" id="previewContainer" data-bind="click : hidePreview">

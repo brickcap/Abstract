@@ -48,7 +48,7 @@ function prepareInitialWorkSpace() {
 
     function validateInputOnFousOut() {
 
-        var isTitleEmpty = titleContainer.text().trim() === '';
+        var isTitleEmpty = titleContainer.val().trim() === '';
         var isDraftEmpty = editAreaView.val() === '';
         var hasTitileAndDraft = !isTitleEmpty && !isDraftEmpty;
         return hasTitileAndDraft;

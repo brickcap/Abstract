@@ -32,7 +32,7 @@ function loadSavedDrafts() {
 
     function saveCurrentDraft() {
 
-        var key = titleContainer.text();
+        var key = titleContainer.val();
         var draft = {};
         draft["time"] = new Date();
         draft["text"] = getMarkdownText();

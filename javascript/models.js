@@ -43,7 +43,7 @@ var draft = function (parsed, title) {
             self.showEditor(true);
             editArea.focus();
             editArea.val('');
-            titleContainer.text('');
+            titleContainer.val('');
 
         };
 
@@ -78,7 +78,7 @@ var draft = function (parsed, title) {
             var parsed = JSON.parse(item);
             draftsView.hide();
             editArea.val(parsed.text).trigger('autosize');
-            titleContainer.text(title);
+            titleContainer.val(title);
             wordCountLabel.text(parsed.wordCount);
             self.showEditor(true);
             self.showTitle(true);
