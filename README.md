@@ -38,7 +38,7 @@ __Drafts__
 
 6. Allow you to export *html*
 
-If you need a place to share your thoughts try [brislink] (http://www.brislink.com/) , a new kind of publishing platform.
+Try [specter](http://brislink.github.io/specter) a blogging platform that uses abstract as it's editor
 
 
 
