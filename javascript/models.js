@@ -102,6 +102,12 @@ var draft = function (parsed, title) {
         self.raw(true);
 
         };
+        
+          self.editTitle = function(){
+            self.currentKey = titleContainer.val();
+            previewContainerView.hide();
+            self.showEditor(true);
+        }
     };
 
     var initializeDrafts = new viewModel();
