@@ -30,7 +30,12 @@ function loadSavedDrafts() {
         initializeDrafts.drafts(array);
     }
 
-    function saveCurrentDraft() {
+    function saveCurrentDraft(prevKey) {
+        
+        if(localStorage.hasOwnProperty(prevKey)){
+            
+            removeDraft(prevKey);
+        }
 
         var key = titleContainer.val();
         var draft = {};
