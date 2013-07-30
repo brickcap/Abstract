@@ -1413,6 +1413,12 @@ var draft = function (parsed, title) {
             titleContainer.val('');
 
         };
+		
+		self.saveAndNotify = function(){
+			if(!editArea.val()) return;
+             saveCurrentDraft(self.currentKey);
+            saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
+        };
 
         self.showPreview = function () {
 
@@ -1423,8 +1429,7 @@ var draft = function (parsed, title) {
                 self.showEditor(false);
                 self.showTitle(true);
                 showThis([rawHtmlExpression,previewContainerExpression]);
-                saveCurrentDraft(self.currentKey);
-                saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
+                self.saveAndNotify();
             }
 
         };
