@@ -43,7 +43,7 @@ var draft = function (parsed, title) {
             hideThis([previewContainerExpression,draftsExpression]);
             self.showTitle(true);
             self.showEditor(true);
-            editArea.focus();
+            titleContainer.focus();
             editArea.val('');
             titleContainer.val('');
 			saveAndPreview.show();
