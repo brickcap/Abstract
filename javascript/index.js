@@ -1394,19 +1394,21 @@ var draft = function (parsed, title) {
         };
 
         self.showDrafts = function () {
-
+			
+			self.saveAndNotify();
             self.showEditor(false);
             self.showTitle(false);
             renderSavedDrafts();
 			saveAndPreview.hide();
             previewContainerView.hide();
             draftsView.show();
-			self.saveAndNotify();
+			
 
         };
 
         self.newDraft = function () {
-
+			
+			self.saveAndNotify();
             hideThis([previewContainerExpression,draftsExpression]);
             self.showTitle(true);
             self.showEditor(true);
@@ -1414,7 +1416,7 @@ var draft = function (parsed, title) {
             editArea.val('');
             titleContainer.val('');
 			saveAndPreview.show();
-			self.saveAndNotify();
+			
         };
 		
 		self.saveAndNotify = function(){
