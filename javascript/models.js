@@ -76,7 +76,7 @@ var draft = function (parsed, title) {
             self.showEditor(true);
             editArea.trigger('autosize');
             editArea.focus();
-
+			saveAndPreview.show();
         };
 
         self.editDraft = function (draft) {
@@ -91,7 +91,7 @@ var draft = function (parsed, title) {
             wordCountLabel.text(parsed.wordCount);
             self.showEditor(true);
             self.showTitle(true);
-
+			saveAndPreview.show();
         };
 
         self.rawHtml = function(data,event){
