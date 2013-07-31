@@ -35,6 +35,7 @@ var draft = function (parsed, title) {
 			saveAndPreview.hide();
             previewContainerView.hide();
             draftsView.show();
+			self.saveAndNotify();
 
         };
 
@@ -47,6 +48,7 @@ var draft = function (parsed, title) {
             editArea.val('');
             titleContainer.val('');
 			saveAndPreview.show();
+			self.saveAndNotify();
         };
 		
 		self.saveAndNotify = function(){
