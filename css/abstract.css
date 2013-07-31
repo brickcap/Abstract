@@ -24,9 +24,9 @@ body,textarea,li{
     display:none;
 }
 
-.previewFeedBack{
+.previewFeedBack li,.editmenus li{
     
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .hiddenElement{
