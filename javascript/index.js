@@ -1584,10 +1584,11 @@ function loadSavedDrafts() {
         }
 
         var key = titleContainer.val();
+		var markDownText = getMarkdownText();
         var draft = {};
         draft["time"] = new Date();
-        draft["text"] = getMarkdownText();
-        draft["wordCount"] = getWordCountFromLabel(wordCountLabel.text());
+        draft["text"] = markDownText;
+        draft["wordCount"] = getWordCount(markDownText);
         localStorage.setItem(key, JSON.stringify(draft));
     }
 
