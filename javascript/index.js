@@ -1362,7 +1362,7 @@ if (typeof exports === 'object') {
     var createNewButton = $("#createNew");
     var showDraftsButton = $("#renderSavedDrafts");
     var wordCountLabel = $("#wordCount");
-
+	var saveAndPreview = $("#saveAndPreview");
     
 var draft = function (parsed, title) {
 
@@ -1415,7 +1415,7 @@ var draft = function (parsed, title) {
         };
 		
 		self.saveAndNotify = function(){
-			if(!editArea.val()) return;
+			if(!editArea.val() || !titleContainer.val()) return;
              saveCurrentDraft(self.currentKey);
             saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
         };
