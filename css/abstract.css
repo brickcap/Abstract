@@ -48,11 +48,10 @@ body,textarea,li{
 }
 
 blockquote p {
-margin-bottom: 0;
+margin-bottom: 5px;
 font-size: 17px;
 font-weight: 300;
 line-height: 25px;
-font-style:italic;
 }
 
 textarea,textarea:focus{
