@@ -19,8 +19,14 @@ var draft = function (parsed, title) {
         self.raw = ko.observable(true);
         self.currentKey = '';
         
-        self.deleteDraft = function (draft, event) {
+        self.clearCurrentWorkSpace = function(){
+            self.currentKey = '';
+            titleContainer.val('');
+            editArea.val('');
+        }
 
+        self.deleteDraft = function (draft, event) {
+            self.clearCurrentWorkSpace();
             event.stopPropagation();
             removeDraft(draft.title);
             self.drafts.remove(draft);
@@ -30,6 +36,7 @@ var draft = function (parsed, title) {
         self.showDrafts = function () {
 			
 			self.saveAndNotify();
+		
             self.showEditor(false);
             self.showTitle(false);
             renderSavedDrafts();
@@ -43,14 +50,12 @@ var draft = function (parsed, title) {
         self.newDraft = function () {
 			
 			self.saveAndNotify();
-            self.currentKey = '';
+            self.clearCurrentWorkSpace();
             hideThis([previewContainerExpression,draftsExpression]);
             self.showTitle(true);
             self.showEditor(true);
             titleContainer.focus();
-            editArea.val('');
-            titleContainer.val('');
-			saveAndPreview.show();
+            saveAndPreview.show();
 			
         };
 		
