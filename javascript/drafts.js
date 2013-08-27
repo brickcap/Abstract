@@ -47,6 +47,7 @@ function loadSavedDrafts() {
         var draft = {};
         draft["text"] = markDownText;
         localStorage.setItem(JSON.stringify(key), JSON.stringify(draft));
+        return key;
     }
 
     function getDraftFromKey(key) {

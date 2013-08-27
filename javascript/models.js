@@ -36,9 +36,8 @@ var draft = function (parsed, key) {
 
         self.showDrafts = function () {
 			
-			self.saveAndNotify();
-		    self.currentKey = titleContainer.data().key
-            self.showEditor(false);
+			self.currentKey = self.saveAndNotify();
+		    self.showEditor(false);
             self.showTitle(false);
             renderSavedDrafts();
 			saveAndPreview.hide();
@@ -50,10 +49,10 @@ var draft = function (parsed, key) {
 
         self.newDraft = function () {
 			
-			self.saveAndNotify();
+			self.currentKey = self.saveAndNotify();
             self.clearCurrentWorkSpace();
             hideThis([previewContainerExpression,draftsExpression]);
-		editArea.trigger('autosize');
+		    editArea.trigger('autosize');
             self.showTitle(true);
             self.showEditor(true);
             titleContainer.focus();
@@ -63,7 +62,9 @@ var draft = function (parsed, key) {
 		
 		self.saveAndNotify = function(){
 			if(!editArea.val() || !titleContainer.val()) return;
-             saveCurrentDraft(self.currentKey);
+
+            self.currentKey = saveCurrentDraft(self.currentKey);
+
             saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
         };
 
@@ -77,7 +78,7 @@ var draft = function (parsed, key) {
                 self.showEditor(false);
                 self.showTitle(true);
                 showThis([rawHtmlExpression,previewContainerExpression]);
-                self.saveAndNotify();
+                self.currentKey = self.saveAndNotify();
             }
 
         };
@@ -100,8 +101,6 @@ var draft = function (parsed, key) {
             editArea.val(parsed.text).trigger('autosize');
             titleContainer.val(parsedKey.title);
             wordCountLabel.text(parsedKey.wordCount);
-            titleContainer.data("key",key);
-            self.currentKey = key;            
             self.showEditor(true);
             self.showTitle(true);
 			saveAndPreview.show();
@@ -124,7 +123,7 @@ var draft = function (parsed, key) {
         };
         
           self.editTitle = function(){
-            self.currentKey = titleContainer.data().key;
+            self.currentKey = saveAndNotify();
             previewContainerView.hide();
             self.showEditor(true);
         }
