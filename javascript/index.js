@@ -1373,6 +1373,7 @@ var draft = function (parsed, key) {
         self.title = key.title;
         self.plural = wordCount > 1;
         self.trueDate = new Date(key.date);
+        self.draftKey = JSON.stringify(key);
 
     };
 
@@ -1394,7 +1395,7 @@ var draft = function (parsed, key) {
         self.deleteDraft = function (draft, event) {
             self.clearCurrentWorkSpace();
             event.stopPropagation();
-            removeDraft(draft.title);
+            removeDraft(draft.key);
             self.drafts.remove(draft);
 
         };
@@ -1464,7 +1465,7 @@ var draft = function (parsed, key) {
             draftsView.hide();
             editArea.val(parsed.text).trigger('autosize');
             titleContainer.val(title);
-            self.currentKey = title;
+            self.currentKey = draft.key;
             wordCountLabel.text(parsed.wordCount);
             self.showEditor(true);
             self.showTitle(true);
@@ -1488,7 +1489,7 @@ var draft = function (parsed, key) {
         };
         
           self.editTitle = function(){
-            self.currentKey = titleContainer.val();
+            self.currentKey = titleContainer.data().datakey;
             previewContainerView.hide();
             self.showEditor(true);
         }
