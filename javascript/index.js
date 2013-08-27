@@ -1364,7 +1364,7 @@ if (typeof exports === 'object') {
     var wordCountLabel = $("#wordCount");
 	var saveAndPreview = $("#saveAndPreview");
     
-var draft = function (parsed, title) {
+var draft = function (parsed, key) {
 
         var self = this;
         var wordCount = parsed.wordCount;
@@ -1576,7 +1576,7 @@ function loadSavedDrafts() {
         var data = [];
         for (var i = 0; i < keys.length; i++) {
             var parsed = JSON.parse(localStorage[keys[i]]);
-            var initializeDraft = new draft(parsed, keys[i]);
+            var initializeDraft = new draft(parsed, JSON.parse(keys[i]));
             data.push(initializeDraft);
         }
 
@@ -1595,9 +1595,14 @@ function loadSavedDrafts() {
             
             removeDraft(prevKey);
         }
-        
+
         var markDownText = getMarkdownText();
-        var key = titleContainer.val()+new Date()+getWordCount(markDownText);		
+        var key = {
+
+         title: titleContainer.val(),
+         date :new Date(),
+         count:getWordCount(markDownText)
+        };		
         var draft = {};
         draft["text"] = markDownText;
         localStorage.setItem(JSON.stringify(key), JSON.stringify(draft));

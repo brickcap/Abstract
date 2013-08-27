@@ -39,9 +39,10 @@ function loadSavedDrafts() {
 
         var markDownText = getMarkdownText();
         var key = {
+
          title: titleContainer.val(),
          date :new Date(),
-         count:getWordCount(markDownText),
+         count:getWordCount(markDownText)
         };		
         var draft = {};
         draft["text"] = markDownText;
