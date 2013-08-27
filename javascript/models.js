@@ -7,6 +7,7 @@ var draft = function (parsed, key) {
         self.title = key.title;
         self.plural = wordCount > 1;
         self.trueDate = new Date(key.date);
+        self.draftKey = key;
 
     };
 
