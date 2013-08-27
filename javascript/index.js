@@ -1595,14 +1595,12 @@ function loadSavedDrafts() {
             
             removeDraft(prevKey);
         }
-
-        var key = titleContainer.val();
-		var markDownText = getMarkdownText();
+        
+        var markDownText = getMarkdownText();
+        var key = titleContainer.val()+new Date()+getWordCount(markDownText);		
         var draft = {};
-        draft["time"] = new Date();
         draft["text"] = markDownText;
-        draft["wordCount"] = getWordCount(markDownText);
-        localStorage.setItem(key, JSON.stringify(draft));
+        localStorage.setItem(JSON.stringify(key), JSON.stringify(draft));
     }
 
     function getDraftFromKey(key) {

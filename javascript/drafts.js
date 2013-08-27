@@ -17,7 +17,7 @@ function loadSavedDrafts() {
         var data = [];
         for (var i = 0; i < keys.length; i++) {
             var parsed = JSON.parse(localStorage[keys[i]]);
-            var initializeDraft = new draft(parsed, keys[i]);
+            var initializeDraft = new draft(parsed, JSON.parse(keys[i]));
             data.push(initializeDraft);
         }
 
@@ -37,13 +37,15 @@ function loadSavedDrafts() {
             removeDraft(prevKey);
         }
 
-        var key = titleContainer.val();
-		var markDownText = getMarkdownText();
+        var markDownText = getMarkdownText();
+        var key = {
+         title: titleContainer.val(),
+         date :new Date(),
+         count:getWordCount(markDownText),
+        };		
         var draft = {};
-        draft["time"] = new Date();
         draft["text"] = markDownText;
-        draft["wordCount"] = getWordCount(markDownText);
-        localStorage.setItem(key, JSON.stringify(draft));
+        localStorage.setItem(JSON.stringify(key), JSON.stringify(draft));
     }
 
     function getDraftFromKey(key) {

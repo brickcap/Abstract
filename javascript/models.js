@@ -1,4 +1,4 @@
-var draft = function (parsed, title) {
+var draft = function (parsed, key) {
 
         var self = this;
         var wordCount = parsed.wordCount;
