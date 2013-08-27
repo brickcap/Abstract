@@ -1403,7 +1403,7 @@ var draft = function (parsed, key) {
         self.showDrafts = function () {
 			
 			self.saveAndNotify();
-		
+		    self.currentKey = titleContainer.data().key
             self.showEditor(false);
             self.showTitle(false);
             renderSavedDrafts();
@@ -1458,15 +1458,16 @@ var draft = function (parsed, key) {
         };
 
         self.editDraft = function (draft) {
-
-            var title = draft.title;
-            var item = getDraftFromKey(title);
+            var key = draft.draftKey;
+            var item = getDraftFromKey(key);
+            var parsedKey = JSON.parse(key);
             var parsed = JSON.parse(item);
             draftsView.hide();
             editArea.val(parsed.text).trigger('autosize');
-            titleContainer.val(title);
-            self.currentKey = draft.key;
-            wordCountLabel.text(parsed.wordCount);
+            titleContainer.val(parsedKey.title);
+            wordCountLabel.text(parsedKey.wordCount);
+            titleContainer.data("key",key);
+            self.currentKey = key;            
             self.showEditor(true);
             self.showTitle(true);
 			saveAndPreview.show();
@@ -1489,7 +1490,7 @@ var draft = function (parsed, key) {
         };
         
           self.editTitle = function(){
-            self.currentKey = titleContainer.data().datakey;
+            self.currentKey = titleContainer.data().key;
             previewContainerView.hide();
             self.showEditor(true);
         }
