@@ -1367,12 +1367,12 @@ if (typeof exports === 'object') {
 var draft = function (parsed, key) {
 
         var self = this;
-        var wordCount = parsed.wordCount;
-        self.date = new Date(parsed.time).toDateString();
+        var wordCount = key.count;
+        self.date = new Date(key.date).toDateString();
         self.count = wordCount;
-        self.title = title;
+        self.title = key.title;
         self.plural = wordCount > 1;
-        self.trueDate = new Date(parsed.time);
+        self.trueDate = new Date(key.date);
 
     };
 
