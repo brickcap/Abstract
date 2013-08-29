@@ -1395,7 +1395,6 @@ var draft = function (parsed, key) {
         self.deleteDraft = function (draft, event) {
             self.clearCurrentWorkSpace();
             event.stopPropagation();
-            console.log(draft.draftKey);
             removeDraft(draft.draftKey);
             self.drafts.remove(draft);
 
@@ -1431,8 +1430,8 @@ var draft = function (parsed, key) {
 			if(!editArea.val() || !titleContainer.val()) return;
              
             saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
-
-           return saveCurrentDraft(self.currentKey);
+            self.currentKey = saveCurrentDraft(self.currentKey);
+           return self.currentKey;
         };
 
         self.showPreview = function () {
