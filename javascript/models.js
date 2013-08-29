@@ -123,7 +123,7 @@ var draft = function (parsed, key) {
         };
         
           self.editTitle = function(){
-            self.currentKey = saveAndNotify();
+            self.currentKey = self.saveAndNotify();
             previewContainerView.hide();
             self.showEditor(true);
         }

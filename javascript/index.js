@@ -1489,7 +1489,7 @@ var draft = function (parsed, key) {
         };
         
           self.editTitle = function(){
-            self.currentKey = saveAndNotify();
+            self.currentKey = self.saveAndNotify();
             previewContainerView.hide();
             self.showEditor(true);
         }
@@ -1592,10 +1592,21 @@ function loadSavedDrafts() {
 
     function saveCurrentDraft(prevKey) {
         
-        if(localStorage.hasOwnProperty(prevKey)){
+        if(prevKey){
             
             removeDraft(prevKey);
+            // if prev key overwrite the draft else create a new one
+            return createNewDraft()
         }
+
+        if(!prevKey){
+
+            return createNewDraft();
+        }
+        
+    }
+
+    function createNewDraft(){
 
         var markDownText = getMarkdownText();
         var key = {
@@ -1603,7 +1614,7 @@ function loadSavedDrafts() {
          title: titleContainer.val(),
          date :new Date(),
          count:getWordCount(markDownText)
-        };		
+        };      
         var draft = {};
         draft["text"] = markDownText;
         localStorage.setItem(JSON.stringify(key), JSON.stringify(draft));
