@@ -1395,7 +1395,8 @@ var draft = function (parsed, key) {
         self.deleteDraft = function (draft, event) {
             self.clearCurrentWorkSpace();
             event.stopPropagation();
-            removeDraft(draft.key);
+            console.log(draft.draftKey);
+            removeDraft(draft.draftKey);
             self.drafts.remove(draft);
 
         };
@@ -1428,10 +1429,10 @@ var draft = function (parsed, key) {
 		
 		self.saveAndNotify = function(){
 			if(!editArea.val() || !titleContainer.val()) return;
-
-            self.currentKey = saveCurrentDraft(self.currentKey);
-
+             
             saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
+
+           return saveCurrentDraft(self.currentKey);
         };
 
         self.showPreview = function () {
@@ -1591,18 +1592,16 @@ function loadSavedDrafts() {
     }
 
     function saveCurrentDraft(prevKey) {
+
+        console.log(prevKey);
         
         if(prevKey){
             
-            removeDraft(prevKey);
-            // if prev key overwrite the draft else create a new one
-            return createNewDraft()
+            removeDraft(prevKey);       
+            
         }
 
-        if(!prevKey){
-
-            return createNewDraft();
-        }
+       return createNewDraft();
         
     }
 
@@ -1614,11 +1613,13 @@ function loadSavedDrafts() {
          title: titleContainer.val(),
          date :new Date(),
          count:getWordCount(markDownText)
-        };      
+        }; 
+        var stringifiedKey = JSON.stringify(key);
+
         var draft = {};
         draft["text"] = markDownText;
-        localStorage.setItem(JSON.stringify(key), JSON.stringify(draft));
-        return key;
+        localStorage.setItem(stringifiedKey, JSON.stringify(draft));
+        return stringifiedKey;
     }
 
     function getDraftFromKey(key) {

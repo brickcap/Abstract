@@ -31,18 +31,16 @@ function loadSavedDrafts() {
     }
 
     function saveCurrentDraft(prevKey) {
+
+        console.log(prevKey);
         
         if(prevKey){
             
-            removeDraft(prevKey);
-            // if prev key overwrite the draft else create a new one
-            return createNewDraft()
+            removeDraft(prevKey);       
+            
         }
 
-        if(!prevKey){
-
-            return createNewDraft();
-        }
+       return createNewDraft();
         
     }
 
@@ -54,11 +52,13 @@ function loadSavedDrafts() {
          title: titleContainer.val(),
          date :new Date(),
          count:getWordCount(markDownText)
-        };      
+        }; 
+        var stringifiedKey = JSON.stringify(key);
+
         var draft = {};
         draft["text"] = markDownText;
-        localStorage.setItem(JSON.stringify(key), JSON.stringify(draft));
-        return key;
+        localStorage.setItem(stringifiedKey, JSON.stringify(draft));
+        return stringifiedKey;
     }
 
     function getDraftFromKey(key) {

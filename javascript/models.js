@@ -29,7 +29,8 @@ var draft = function (parsed, key) {
         self.deleteDraft = function (draft, event) {
             self.clearCurrentWorkSpace();
             event.stopPropagation();
-            removeDraft(draft.key);
+            console.log(draft.draftKey);
+            removeDraft(draft.draftKey);
             self.drafts.remove(draft);
 
         };
@@ -62,10 +63,10 @@ var draft = function (parsed, key) {
 		
 		self.saveAndNotify = function(){
 			if(!editArea.val() || !titleContainer.val()) return;
-
-            self.currentKey = saveCurrentDraft(self.currentKey);
-
+             
             saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
+
+           return saveCurrentDraft(self.currentKey);
         };
 
         self.showPreview = function () {
