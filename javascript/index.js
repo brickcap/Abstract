@@ -1592,8 +1592,7 @@ function loadSavedDrafts() {
 
     function saveCurrentDraft(prevKey) {
 
-        console.log(prevKey);
-        
+           
         if(prevKey){
             
             removeDraft(prevKey);       
