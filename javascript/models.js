@@ -96,6 +96,7 @@ var draft = function (parsed, key) {
             var key = draft.draftKey;
             var item = getDraftFromKey(key);
             var parsedKey = JSON.parse(key);
+            self.currentKey = key;
             var parsed = JSON.parse(item);
             draftsView.hide();
             editArea.val(parsed.text).trigger('autosize');
