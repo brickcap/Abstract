@@ -1,3 +1,5 @@
+For latest news regarding abstract checkout posts under [abstract](http://www.staticshin.com/tag/abstract) on my [blog](http://www.staticshin.com/)
+
  What is abstract? 
 -----------------------
 
